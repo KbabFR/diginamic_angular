@@ -1,9 +1,12 @@
 .item {
-  padding: .5rem 0 .75rem 0;
+  padding: 0.5rem;
   text-align: left;
   font-size: 1.2rem;
   display: flex;
   flex-wrap: wrap;
+  border: outset;
+  margin-bottom: 1rem;
+  background-color: white;
 }
 
 .categoryLabel{

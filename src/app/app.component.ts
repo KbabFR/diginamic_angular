@@ -9,14 +9,17 @@ import { Item } from './item';
 export class AppComponent {
   title = 'users_todolist_project';
 
-  filter: 'all' | 'vital' | 'fun' | 'work' = 'all';
+  filter: 'all' | 'vital' | 'fun' | 'work' | 'shopping' = 'all';
 
   allItems = [
     { description: 'Eat', done: true , category: 'vital'},
     { description: 'Sleep', done: false , category: 'vital'},
     { description: 'Play', done: false , category: 'fun'},
     { description: 'Laugh', done: false , category: 'fun'},
-    { description: 'Code', done: false , category: 'work'},
+    { description: 'Code', done: true , category: 'work'},
+    { description: 'Debug', done: true , category: 'work'},
+    { description: 'Egg', done: false , category: 'shopping'},
+    { description: 'Bread', done: true , category: 'shopping'},
   ];
 
   get filteredItems() {

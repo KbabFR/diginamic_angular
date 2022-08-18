@@ -17,6 +17,7 @@
         <option value="vital">Vital</option>
         <option value="fun">Fun</option>
         <option value="work">Work</option>
+        <option value="shopping">Shopping</option>
     </select>
 
     <button class="btn-primary" (click)="addItem(newDescItem.value, newCatItem.value); newDescItem.value = ''">Add</button>
@@ -50,6 +51,13 @@
       [class.active]="filter == 'work'"
       (click)="filter = 'work'">
       Work
+    </button>
+
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'shopping'"
+      (click)="filter = 'shopping'">
+      Shopping
     </button>
   </div>
 

@@ -2,9 +2,10 @@
 
     <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
     <label [for]="item.description">{{item.description}}</label>
-    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'vital'" style="background: greenyellow;">{{item.category}}</label>
-    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'fun'" style="background: hotpink;">{{item.category}}</label>
-    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'work'" style="background: Teal;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'vital'" style="background: mediumspringgreen;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'fun'" style="background: darkorchid; color: white;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'work'" style="background: Teal; color: white;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'shopping'" style="background: gold;">{{item.category}}</label>
   
     <div class="btn-wrapper" *ngIf="!editable">
       <button class="btn" (click)="editable = !editable">Edit</button>
@@ -20,6 +21,7 @@
         <option value="vital">Vital</option>
         <option value="fun">Fun</option>
         <option value="work">Work</option>
+        <option value="shopping">Shopping</option>
     </select>
   
       <div class="btn-wrapper">

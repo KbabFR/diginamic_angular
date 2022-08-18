@@ -10,13 +10,19 @@
   
     <!-- This section shows only if user clicks Edit button -->
     <div *ngIf="editable">
-      <input class="sm-text-input" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value)">
+      <input class="sm-text-input" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value, editedCategory.value)">
+
+      <select name="category" class="sm-text-input" id="category-select" [value]="item.category" #editedCategory>
+        <option value="">None</option>
+        <option value="vital">Vital</option>
+        <option value="fun">Fun</option>
+        <option value="work">Work</option>
+    </select>
   
       <div class="btn-wrapper">
         <button class="btn" (click)="editable = !editable">Cancel</button>
-        <button class="btn btn-save" (click)="saveItem(editedItem.value)">Save</button>
+        <button class="btn btn-save" (click)="saveItem(editedItem.value, editedCategory.value)">Save</button>
       </div>
     </div>
   
   </div>
-  

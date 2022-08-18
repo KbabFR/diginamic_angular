@@ -2,6 +2,9 @@
 
     <input [id]="item.description" type="checkbox" (change)="item.done = !item.done" [checked]="item.done" />
     <label [for]="item.description">{{item.description}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'vital'" style="background: greenyellow;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'fun'" style="background: hotpink;">{{item.category}}</label>
+    <label [for]="item.category" class="categoryLabel" *ngIf="item.category === 'work'" style="background: Teal;">{{item.category}}</label>
   
     <div class="btn-wrapper" *ngIf="!editable">
       <button class="btn" (click)="editable = !editable">Edit</button>
@@ -9,7 +12,7 @@
     </div>
   
     <!-- This section shows only if user clicks Edit button -->
-    <div *ngIf="editable">
+    <div id="editMenu" *ngIf="editable">
       <input class="sm-text-input" placeholder="edit item" [value]="item.description" #editedItem (keyup.enter)="saveItem(editedItem.value, editedCategory.value)">
 
       <select name="category" class="sm-text-input" id="category-select" [value]="item.category" #editedCategory>

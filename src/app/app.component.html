@@ -1,6 +1,13 @@
 <div class="main">
 
+  <select #selectedUser id="user-select" (change)="setCurrentUser(selectedUser.value)">
+      <option value={{user.id}} *ngFor="let user of users">{{user.name}}</option>
+    </select>
+    
   <div id="head">
+
+    
+
     <h1>To Do List</h1>
     <label for="addItemInput">What would you like to do ?</label>
 
@@ -85,5 +92,4 @@
     </div>
   </div>
   
-
 </div>

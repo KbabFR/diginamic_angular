@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Item } from './item';
+import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,37 @@ import { Item } from './item';
 export class AppComponent {
   title = 'users_todolist_project';
 
-  filter: 'all' | 'vital' | 'fun' | 'work' | 'shopping' = 'all';
+  filter: 'all' | 'fun' | 'shopping'| 'vital' | 'work'  = 'all';
 
-  allItems = [
-    { description: 'Eat', done: true , category: 'vital'},
-    { description: 'Sleep', done: false , category: 'vital'},
-    { description: 'Play', done: false , category: 'fun'},
-    { description: 'Laugh', done: false , category: 'fun'},
-    { description: 'Code', done: true , category: 'work'},
-    { description: 'Debug', done: true , category: 'work'},
-    { description: 'Egg', done: false , category: 'shopping'},
-    { description: 'Bread', done: true , category: 'shopping'},
+  curUser:number = 0;
+
+  users:User[] = [
+    { id: 0, name: 'John Doemo', todoList: [
+      { description: 'Eat', done: true , category: 'vital'},
+      { description: 'Sleep', done: false , category: 'vital'},
+      { description: 'Laugh', done: false , category: 'fun'},
+      { description: 'Play', done: false , category: 'fun'},
+      { description: 'Code', done: true , category: 'work'},
+      { description: 'Debug', done: true , category: 'work'},
+      { description: 'Egg', done: false , category: 'shopping'},
+      { description: 'Bread', done: true , category: 'shopping'},
+    ]},
+    { id: 1, name: 'Thomas Warin', todoList: [
+      { description: 'Sleep', done: false , category: 'vital'},
+      { description: 'Play', done: false , category: 'fun'},
+      { description: 'Code', done: true , category: 'work'},
+      { description: 'Debug', done: true , category: 'work'},
+      { description: 'Coment', done: false , category: 'work'},
+      { description: 'Test', done: false , category: 'work'},
+    ]},
+    { id: 2, name: 'Empty User', todoList: []}
   ];
 
   get filteredItems() {
     if (this.filter === 'all') {
-      return this.allItems;
+      return this.users[this.curUser].todoList;
     }
-    return this.allItems.filter((item) => this.filter === item.category);
+    return this.users[this.curUser].todoList.filter((item) => this.filter === item.category);
   }
 
   get itemsActive() {
@@ -38,7 +52,7 @@ export class AppComponent {
   }
 
   addItem(description: string, category: string) {
-    this.allItems.unshift({
+    this.users[this.curUser].todoList.unshift({
       description,
       done: false,
       category
@@ -46,7 +60,11 @@ export class AppComponent {
   }
   
   remove(item:Item) {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
+    this.users[this.curUser].todoList.splice(this.users[this.curUser].todoList.indexOf(item), 1);
+  }
+
+  setCurrentUser(id:string) {
+    this.curUser = +id;
   }
   
 }

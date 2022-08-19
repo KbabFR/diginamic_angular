@@ -26,6 +26,14 @@ body {
     justify-content: center;
   }
 
+  #user-select{
+    margin-right: 30%;
+    padding: 0.6rem;
+    border: 2px solid #000;
+    font-size: 1rem;
+    position: absolute;
+  }
+
   #filterButtons{
     width: 100%;
     display: flex;
